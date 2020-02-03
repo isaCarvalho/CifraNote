@@ -9,14 +9,14 @@ class ControladorBanco(private val context: Context)
 {
     private val dbHelper = CriaBanco(context)
 
-    fun inserirDados(name : String, music_key : String, description : String)
+    fun inserirDados(musica : Musica)
     {
         val db = dbHelper.writableDatabase
 
         val values = ContentValues().apply {
-            put(CriaBanco.FeedReaderContract.FeedEntry.NAME, name)
-            put(CriaBanco.FeedReaderContract.FeedEntry.KEY, music_key)
-            put(CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO, description)
+            put(CriaBanco.FeedReaderContract.FeedEntry.NAME, musica.nome)
+            put(CriaBanco.FeedReaderContract.FeedEntry.KEY, musica.tom)
+            put(CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO, musica.descricao)
         }
 
         val newRowId = db?.insert(CriaBanco.FeedReaderContract.FeedEntry.TABLE_NAME, null, values)

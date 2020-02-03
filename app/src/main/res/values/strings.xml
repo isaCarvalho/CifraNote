@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Cifra Note</string>
+    <string name="musicNameField">Nome da Musica</string>
+    <string name="musicKeyField">Tonalidade</string>
+    <string name="musicDescriptionField">Cifra</string>
+    <string name="inserirDados">Salvar</string>
 </resources>
