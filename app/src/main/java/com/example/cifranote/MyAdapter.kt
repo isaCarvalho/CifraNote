@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cifranote.model.Musica
+import org.w3c.dom.Text
 
 const val EXTRA_MESSAGE = "com.exemple.cifranote.MESSAGE"
 
@@ -17,6 +18,7 @@ class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
     class MyViewHolder (val v: View) : RecyclerView.ViewHolder(v)
     {
         val textView: TextView = v.findViewById(R.id.musicName)
+        val textViewKey : TextView = v.findViewById(R.id.musicKey)
         val cardView: CardView = v.findViewById(R.id.card_view)
     }
 
@@ -28,8 +30,8 @@ class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val string = "${myDataset[position].nome} (${myDataset[position].tom})"
-        holder.textView.text = string
+        holder.textView.text = myDataset[position].nome
+        holder.textViewKey.text = myDataset[position].tom
 
         holder.cardView.setOnClickListener{ v ->
 

@@ -4,4 +4,50 @@
     <string name="musicKeyField">Tonalidade</string>
     <string name="musicDescriptionField">Cifra</string>
     <string name="inserirDados">Salvar</string>
+    <string name="manual1">
+        Seja bem vindo ao Cifra Note!
+    </string>
+    <string name="manual2">
+        Este aplicativo foi desenvolvido para os músicos de precisam de um lugar para anotar suas
+        cifras de maneira rápida, fácil e acessível. A idéia é que no lugar de escrever em um caderno
+        ou utilizar aplicações que ocupam muito espaço de armazenamento para visualizar cifras, o
+        usuário tenha um caderno virtual. Isto faz com que este aplicativo seja leve e seguro. O
+        usuário deve seguir o passo a passo abaixo para guardar sua cifra no Cifra Note:
+    </string>
+    <string name="manual3">
+        1. Apertar o botão + no canto inferior direito na tela principal do seu aplicativo.
+    </string>
+    <string name="manual4">
+        2. Preencher os campos de nome da música e tonalidade.
+    </string>
+    <string name="manual5">
+        3. Importar um arquivo \'nomedacifra.txt\'. O usuário pode digitar a cifra em seu computador, salvá-la, e importar no aplicativo.
+    </string>
+    <string name="manual6">
+        3.1 Escrevendo o arquivo \'parabensparavoce.txt\' (no seu computador):
+        OBS: É muito importante que o arquivo tenha o seguinte formato:
+    </string>
+    <string name="manual7">
+        G;D;\n
+        Para|béns pra vo|cê\n
+        G;\n
+        Nesta data que|rida\n
+        C;\n
+        Muitas felici|dades\n
+        D;G;\n
+        Muitos |anos de |vida\n
+    </string>
+    <string name="manual8">
+        3.2 Copie o arquivo para o armazenamento local do seu dispositivo
+    </string>
+    <string name="manual9">
+        3.3 Selecione este arquivo no campo cifra
+    </string>
+    <string name="manual10">
+        4. Salvar
+    </string>
+    <string name="manual11">
+        Tudo certo! A cifra foi armazenada, e o usuário já pode aproveitar para tocar suas músicas
+        preferidas!
+    </string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.cifranote
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -20,11 +21,15 @@ class InsertDataActivity : AppCompatActivity() {
         salvar = findViewById(R.id.salvar)
 
         salvar.setOnClickListener{
-            val name = findViewById<EditText>(R.id.musicNameField)
-            val key = findViewById<EditText>(R.id.musicKeyField)
-            val description = findViewById<EditText>(R.id.musicDescriptionField)
+            val name = findViewById<EditText>(R.id.musicNameField).text.toString()
+            val key = findViewById<EditText>(R.id.musicKeyField).text.toString()
+            val description = findViewById<EditText>(R.id.musicDescriptionField).text.toString()
 
-            Controller(this).insertMusica(name.text.toString(), key.text.toString(), description.text.toString())
+            if (name != "" && key != "") // so salva se tiver nome e tonalidade
+                Controller(this).insertMusica(name, key, description)
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }
