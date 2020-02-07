@@ -10,21 +10,21 @@ Este aplicativo foi desenvolvido para os músicos de precisam de um lugar para a
 
 3. Importar um arquivo 'nomedacifra.txt'. O usuário pode digitar a cifra em seu computador, salvá-la, e importar no aplicativo.
 
-3.1. Escrevendo o arquivo parabensparavoce.txt (no seu computador):
+- Escrevendo o arquivo parabensparavoce.txt (no seu computador):
 OBS: É muito importante que o arquivo tenha o seguinte formato:
 
-G;D;
-Para|béns pra vo|cê
-G;
-Nesta data que|rida
-C;
-Muitas felici|dades
-D;G;
-Muitos |anos de |vida
+<p>G;D;<br/>
+Para|béns pra vo|cê<br/>
+G;<br/>
+Nesta data que|rida<br/>
+C;<br/>
+Muitas felici|dades<br/>
+D;G;<br/>
+Muitos |anos de |vida<br/></p>
 
-3.2. Copie o arquivo para o armazenamento local do seu dispositivo
+- Copie o arquivo para o armazenamento local do seu dispositivo
 
-3.3. Selecione este arquivo no campo cifra
+- Selecione este arquivo no campo cifra
 
 4. Salvar
 
