@@ -9,17 +9,24 @@ class ControladorBanco(private val context: Context)
 {
     private val dbHelper = CriaBanco(context)
 
-    fun inserirDados(musica : Musica)
+    fun inserirDados(name : String, key : String, description : String)
     {
         val db = dbHelper.writableDatabase
 
         val values = ContentValues().apply {
-            put(CriaBanco.FeedReaderContract.FeedEntry.NAME, musica.nome)
-            put(CriaBanco.FeedReaderContract.FeedEntry.KEY, musica.tom)
-            put(CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO, musica.descricao)
+            put(CriaBanco.FeedReaderContract.FeedEntry.NAME,name)
+            put(CriaBanco.FeedReaderContract.FeedEntry.KEY, key)
+            put(CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO, description)
         }
 
         val newRowId = db?.insert(CriaBanco.FeedReaderContract.FeedEntry.TABLE_NAME, null, values)
+    }
+
+    fun deletarDados(id: Int)
+    {
+        val db = dbHelper.writableDatabase
+
+        db.execSQL("DELETE FROM musics WHERE ${BaseColumns._ID} = $id")
     }
 
     fun lerDados() : MutableList<Musica>
@@ -42,10 +49,11 @@ class ControladorBanco(private val context: Context)
         val items = mutableListOf<Musica>()
         with(cursor) {
             while (moveToNext()) {
+                val id = getInt(getColumnIndexOrThrow(BaseColumns._ID))
                 val name = getString(getColumnIndexOrThrow(CriaBanco.FeedReaderContract.FeedEntry.NAME))
                 val key = getString(getColumnIndexOrThrow(CriaBanco.FeedReaderContract.FeedEntry.KEY))
                 val description = getString(getColumnIndexOrThrow(CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO))
-                items.add(Musica(name, key, description))
+                items.add(Musica(id, name, key, description))
             }
         }
 

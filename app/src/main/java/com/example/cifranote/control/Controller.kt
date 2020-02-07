@@ -13,7 +13,7 @@ class Controller(context: Context)
     {
         val list = dbController.lerDados()
 
-        var musicas : Array<Musica> = Array(size = list.size){i ->
+        val musicas : Array<Musica> = Array(size = list.size){i ->
             list[i]
         }
 
@@ -22,8 +22,11 @@ class Controller(context: Context)
 
     fun insertMusica(name : String, key : String, description: String)
     {
-        val musica = Musica(name, key, description)
+        dbController.inserirDados(name, key, description)
+    }
 
-        dbController.inserirDados(musica)
+    fun deleteMusica(id: Int)
+    {
+        dbController.deletarDados(id)
     }
 }

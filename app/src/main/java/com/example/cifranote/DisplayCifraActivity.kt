@@ -12,7 +12,7 @@ class DisplayCifraActivity : AppCompatActivity() {
 
         val cifra = intent.getStringExtra(EXTRA_MESSAGE)
 
-        val textView = findViewById<TextView>(R.id.cifra).apply {
+        findViewById<TextView>(R.id.cifra).apply {
             text = cifra
         }
     }

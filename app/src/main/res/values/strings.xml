@@ -50,4 +50,5 @@
         Tudo certo! A cifra foi armazenada, e o usuário já pode aproveitar para tocar suas músicas
         preferidas!
     </string>
+    <string name="delete">delete</string>
 </resources>

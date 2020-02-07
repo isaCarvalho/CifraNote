@@ -4,10 +4,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cifranote.control.Controller
 import com.example.cifranote.model.Musica
 import org.w3c.dom.Text
 
@@ -20,6 +22,7 @@ class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
         val textView: TextView = v.findViewById(R.id.musicName)
         val textViewKey : TextView = v.findViewById(R.id.musicKey)
         val cardView: CardView = v.findViewById(R.id.card_view)
+        val imageDelete : ImageView = v.findViewById(R.id.delete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder
@@ -35,12 +38,17 @@ class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
 
         holder.cardView.setOnClickListener{ v ->
 
-            val intent = Intent(v.context, DisplayCifraActivity::class.java).apply {
+            Intent(v.context, DisplayCifraActivity::class.java).apply {
                 putExtra(EXTRA_MESSAGE, myDataset[position].descricao)
             }.also {
 
                 startActivity(v.context, it, null)
             }
+        }
+
+        // consertar isso aqui pra atualizar o recycler view
+        holder.imageDelete.setOnClickListener{v ->
+            Controller(v.context).deleteMusica(myDataset[position].id)
         }
     }
 
