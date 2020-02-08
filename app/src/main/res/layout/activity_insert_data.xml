@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".InsertDataActivity">
 
     <TableRow
@@ -64,11 +65,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textLongMessage"
-            android:maxLines="100"
-            android:lines="25"
             android:hint="@string/musicDescriptionField"
-            android:importantForAutofill="no"/>
+            android:importantForAutofill="no"
+            android:inputType="textLongMessage"
+            android:lines="25"
+            android:maxLines="100" />
     </TableRow>
 
     <Button

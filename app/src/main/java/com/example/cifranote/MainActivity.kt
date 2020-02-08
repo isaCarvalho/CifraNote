@@ -3,10 +3,14 @@ package com.example.cifranote
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cifranote.control.Controller
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,11 +33,35 @@ class MainActivity : AppCompatActivity() {
 
             adapter = viewAdapter
         }
+
+        val button : FloatingActionButton = findViewById(R.id.floatingButton)
+        button.setOnClickListener {
+            val intent = Intent(this, InsertDataActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    fun openInsertActivity(view : View)
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menuprincipal, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean
     {
-        val intent = Intent(this, InsertDataActivity::class.java)
-        startActivity(intent)
+        return when (item.itemId)
+        {
+            R.id.action_help ->
+            {
+                val intent = Intent(this, HelpActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.action_settings ->
+            {
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

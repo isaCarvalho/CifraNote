@@ -51,4 +51,6 @@
         preferidas!
     </string>
     <string name="delete">delete</string>
+    <string name="action_help">Ajuda</string>
+    <string name="action_settings">Configurações</string>
 </resources>

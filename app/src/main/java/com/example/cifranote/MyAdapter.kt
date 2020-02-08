@@ -17,7 +17,7 @@ const val EXTRA_MESSAGE = "com.exemple.cifranote.MESSAGE"
 
 class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAdapter.MyViewHolder>()
 {
-    class MyViewHolder (val v: View) : RecyclerView.ViewHolder(v)
+    class MyViewHolder (v: View) : RecyclerView.ViewHolder(v)
     {
         val textView: TextView = v.findViewById(R.id.musicName)
         val textViewKey : TextView = v.findViewById(R.id.musicKey)
@@ -46,9 +46,9 @@ class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
             }
         }
 
-        // consertar isso aqui pra atualizar o recycler view
         holder.imageDelete.setOnClickListener{v ->
             Controller(v.context).deleteMusica(myDataset[position].id)
+            notifyDataSetChanged()
         }
     }
 
