@@ -53,4 +53,7 @@
     <string name="delete">delete</string>
     <string name="action_help">Ajuda</string>
     <string name="action_settings">Configurações</string>
+    <string name="fontFamily">Fonte</string>
+    <string name="fontSize">Tamanho da Fonte</string>
+    <string name="fontColor">Cor da cifra</string>
 </resources>
