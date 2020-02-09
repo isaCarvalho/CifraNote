@@ -38,8 +38,10 @@ class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
 
         holder.cardView.setOnClickListener{ v ->
 
+            val array: Array<String> = arrayOf(myDataset[position].descricao, "${myDataset[position].nome} (${myDataset[position].tom})")
+
             Intent(v.context, DisplayCifraActivity::class.java).apply {
-                putExtra(EXTRA_MESSAGE, myDataset[position].descricao)
+                putExtra(EXTRA_MESSAGE, array)
             }.also {
 
                 startActivity(v.context, it, null)

@@ -10,10 +10,14 @@ class DisplayCifraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display_cifra)
 
-        val cifra = intent.getStringExtra(EXTRA_MESSAGE)
+        val cifra = intent.getStringArrayExtra(EXTRA_MESSAGE)
 
         findViewById<TextView>(R.id.cifra).apply {
-            text = cifra
+            text = cifra!![0]
+        }
+
+        findViewById<TextView>(R.id.nameKey).apply {
+            text = cifra!![1]
         }
     }
 }

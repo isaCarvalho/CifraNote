@@ -54,6 +54,27 @@
     <string name="action_help">Ajuda</string>
     <string name="action_settings">Configurações</string>
     <string name="fontFamily">Fonte</string>
-    <string name="fontSize">Tamanho da Fonte</string>
+    <string name="fontSize">Tamanho</string>
     <string name="fontColor">Cor da cifra</string>
+
+    <string-array name="sizes_array">
+        <item>Pequeno</item>
+        <item>Médio</item>
+        <item>Grande</item>
+        <item>Extra grande</item>
+    </string-array>
+
+    <string-array name="family_array">
+        <item>Arial</item>
+        <item>Sans-Serif</item>
+        <item>Monospace</item>
+    </string-array>
+
+    <string-array name="colors_array">
+        <item>Vermelho</item>
+        <item>Azul</item>
+        <item>Rosa</item>
+        <item>Roxo</item>
+    </string-array>
+
 </resources>

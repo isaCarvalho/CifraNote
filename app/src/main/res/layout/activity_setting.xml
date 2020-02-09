@@ -23,7 +23,12 @@
             android:layout_height="wrap_content"
             android:text="@string/fontFamily"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerFamily"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </TableRow>
 
     <TableRow
@@ -43,11 +48,17 @@
             android:layout_height="wrap_content"
             android:text="@string/fontSize"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerSizes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </TableRow>
 
     <TableRow
-        android:id="@+id/fontColor"
+        android:id="@+id/rowFontColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -63,6 +74,11 @@
             android:layout_height="wrap_content"
             android:text="@string/fontColor"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerColors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </TableRow>
 </androidx.constraintlayout.widget.ConstraintLayout>
