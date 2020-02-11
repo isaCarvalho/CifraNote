@@ -22,7 +22,7 @@
             android:id="@+id/helpLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="40sp">
+            android:paddingBottom="32dp">
 
             <TextView
                 android:id="@+id/help1"

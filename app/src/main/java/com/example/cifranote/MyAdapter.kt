@@ -11,7 +11,6 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cifranote.control.Controller
 import com.example.cifranote.model.Musica
-import org.w3c.dom.Text
 
 const val EXTRA_MESSAGE = "com.exemple.cifranote.MESSAGE"
 
@@ -40,7 +39,7 @@ class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
 
             val array: Array<String> = arrayOf(myDataset[position].descricao, "${myDataset[position].nome} (${myDataset[position].tom})")
 
-            Intent(v.context, DisplayCifraActivity::class.java).apply {
+            Intent(v.context, DisplayChordsActivity::class.java).apply {
                 putExtra(EXTRA_MESSAGE, array)
             }.also {
 

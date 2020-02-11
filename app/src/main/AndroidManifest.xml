@@ -34,7 +34,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".DisplayCifraActivity"
+            android:name=".DisplayChordsActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
