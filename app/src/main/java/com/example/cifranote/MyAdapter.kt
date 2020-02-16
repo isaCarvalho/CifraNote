@@ -14,7 +14,7 @@ import com.example.cifranote.model.Musica
 
 const val EXTRA_MESSAGE = "com.exemple.cifranote.MESSAGE"
 
-class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAdapter.MyViewHolder>()
+class MyAdapter(private var myDataset: Array<Musica>): RecyclerView.Adapter<MyAdapter.MyViewHolder>()
 {
     class MyViewHolder (v: View) : RecyclerView.ViewHolder(v)
     {
@@ -48,7 +48,11 @@ class MyAdapter(private val myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
         }
 
         holder.imageDelete.setOnClickListener{v ->
-            Controller(v.context).deleteMusica(myDataset[position].id)
+            val musica = myDataset[position]
+
+            Controller(v.context).deleteMusica(musica.id)
+
+            myDataset = Controller(v.context).getMusicas()
             notifyDataSetChanged()
         }
     }

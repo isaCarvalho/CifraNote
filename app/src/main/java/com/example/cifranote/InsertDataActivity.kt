@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,6 +18,7 @@ private const val READ_REQUEST_CODE : Int = 42
 class InsertDataActivity : AppCompatActivity() {
 
     private lateinit var salvar : Button
+    private lateinit var buttonPicker : Button
     private var description : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,8 +38,7 @@ class InsertDataActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val buttonPicker : Button = findViewById(R.id.filePicker)
-
+        buttonPicker = findViewById(R.id.filePicker)
         buttonPicker.setOnClickListener{
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
                 addCategory(Intent.CATEGORY_OPENABLE)
