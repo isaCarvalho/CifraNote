@@ -17,7 +17,14 @@ class DisplayChordsActivity : AppCompatActivity() {
         }
 
         findViewById<TextView>(R.id.nameKey).apply {
-            text = chords!![1]
+            text = formatCifra(chords!![1])
         }
+    }
+
+    fun formatCifra(cifra: String) : String
+    {
+        val list = cifra.split("\n")
+
+        return list[0]
     }
 }
