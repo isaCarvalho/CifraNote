@@ -12,7 +12,6 @@ class SettingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_setting)
 
         val spinnerFamily: Spinner = findViewById(R.id.spinnerFamily)
-
         ArrayAdapter.createFromResource(this, R.array.family_array, android.R.layout.simple_spinner_item
         ).also { adapter ->
 
@@ -20,7 +19,6 @@ class SettingActivity : AppCompatActivity() {
 
             spinnerFamily.adapter = adapter
         }
-
 
         val spinnerSizes: Spinner = findViewById(R.id.spinnerSizes)
 

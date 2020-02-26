@@ -21,9 +21,10 @@ class DisplayChordsActivity : AppCompatActivity() {
         }
     }
 
-    fun formatCifra(cifra: String) : String
+    private fun formatCifra(cifra: String) : String
     {
-        val list = cifra.split("\n")
+        val regex = Regex("/\\n/")
+        val list = cifra.split(regex = regex)
 
         return list[0]
     }

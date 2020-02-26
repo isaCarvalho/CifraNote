@@ -59,12 +59,8 @@ class InsertDataActivity : AppCompatActivity() {
                 val stringBuilder = StringBuilder()
                 contentResolver.openInputStream(uri).use { inputStream ->
                     BufferedReader(InputStreamReader(inputStream!!)).use { reader ->
-                        var line : String? = reader.readLine()
-                        while(line != null)
-                        {
-                            stringBuilder.append(line)
-                            line = reader.readLine()
-                        }
+                        val line : String? = reader.readText()
+                        stringBuilder.append(line)
                     }
                 }
 
