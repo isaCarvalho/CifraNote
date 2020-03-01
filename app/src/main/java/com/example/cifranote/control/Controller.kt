@@ -33,7 +33,7 @@ class Controller(context: Context)
     fun setFavorito(favorito : String, id : String)
     {
         var fav = "false"
-        if (favorito == "true")
+        if (favorito == "false")
             fav = "true"
 
         dbController.setFavorito(fav, id)

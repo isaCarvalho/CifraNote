@@ -27,7 +27,7 @@ class ControladorBanco(private val context: Context)
     {
         val db = dbHelper.writableDatabase
 
-        db.execSQL("UPDATE musics SET favorite = $favorito WHERE ${BaseColumns._ID} = $id")
+        db.execSQL("UPDATE musics SET favorite = '$favorito' WHERE ${BaseColumns._ID} = $id")
     }
 
     fun deletarDados(id: Int)

@@ -4,6 +4,7 @@
     <item
         android:id="@+id/favoritos"
         android:icon="@mipmap/ic_fav_background"
+        android:onClick="setFavorito"
         android:title="@string/favoritos" />
     <item
         android:id="@+id/zoom_out"

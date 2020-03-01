@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import com.example.cifranote.control.Controller
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_display_chords.*
 
 class DisplayChordsActivity : AppCompatActivity() {
 
@@ -34,7 +35,6 @@ class DisplayChordsActivity : AppCompatActivity() {
         }
 
         favorito = chords!![2]
-
         id = chords!![3]
     }
 
