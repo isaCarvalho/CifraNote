@@ -76,4 +76,10 @@
         <item>Roxo</item>
     </string-array>
 
+    <string name="favoritos">Favoritos</string>
+
+    <string name="zoomin">Zoom In</string>
+
+    <string name="zoomout">Zoom Out</string>
+
 </resources>

@@ -1,14 +1,21 @@
 package com.example.cifranote
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.TextView
+import com.example.cifranote.control.Controller
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DisplayChordsActivity : AppCompatActivity() {
+
+    private lateinit var chordsTextView: TextView
+    private lateinit var nameTextView: TextView
+    private val arraySizes = arrayOf(15F, 16F, 17F, 18F, 19F, 20F, 20.5F)
+    private var pos = 0
+    private lateinit var favorito : String
+    private lateinit var id : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,33 +23,19 @@ class DisplayChordsActivity : AppCompatActivity() {
 
         val chords = intent.getStringArrayExtra(EXTRA_MESSAGE)
 
-        findViewById<TextView>(R.id.chords).apply {
+        chordsTextView =  findViewById(R.id.chords)
+        chordsTextView.apply {
             text = chords!![0]
         }
 
-        findViewById<TextView>(R.id.nameKey).apply {
+        nameTextView = findViewById(R.id.nameKey)
+        nameTextView.apply {
             text = formatCifra(chords!![1])
         }
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.menuconfiguracoes, menu)
-        return true
-    }
+        favorito = chords!![2]
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean
-    {
-        return when (item.itemId)
-        {
-            R.id.action_settings ->
-            {
-                val intent = Intent(this, SettingActivity::class.java)
-                startActivity(intent)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+        id = chords!![3]
     }
 
     private fun formatCifra(cifra: String) : String
@@ -54,4 +47,48 @@ class DisplayChordsActivity : AppCompatActivity() {
 
         return list[0]
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        bottomNavigationView.menu.clear()
+        bottomNavigationView.inflateMenu(R.menu.menubottom)
+        return true
+    }
+
+    fun setFavorito(view : MenuItem)
+    {
+        Controller(this).setFavorito(this.favorito, this.id)
+    }
+
+    fun zoomIn(view : MenuItem)
+    {
+        pos++
+        changeSize()
+    }
+
+    fun zoomOut(view : MenuItem)
+    {
+        pos--
+        changeSize()
+    }
+
+    private fun changeSize()
+    {
+        if (pos <= 0)
+            pos = 0
+        else if (pos >= arraySizes.size)
+            pos = arraySizes.size - 1
+
+        this.chordsTextView.apply {
+            textSize = arraySizes[pos]
+        }
+
+
+        this.nameTextView.apply {
+            textSize = arraySizes[pos]
+        }
+    }
+
 }

@@ -29,4 +29,13 @@ class Controller(context: Context)
     {
         dbController.deletarDados(id)
     }
+
+    fun setFavorito(favorito : String, id : String)
+    {
+        var fav = "false"
+        if (favorito == "true")
+            fav = "true"
+
+        dbController.setFavorito(fav, id)
+    }
 }

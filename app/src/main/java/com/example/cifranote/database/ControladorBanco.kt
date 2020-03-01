@@ -17,9 +17,17 @@ class ControladorBanco(private val context: Context)
             put(CriaBanco.FeedReaderContract.FeedEntry.NAME,name)
             put(CriaBanco.FeedReaderContract.FeedEntry.KEY, key)
             put(CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO, description)
+            put(CriaBanco.FeedReaderContract.FeedEntry.FAVORITO, "false")
         }
 
         val newRowId = db?.insert(CriaBanco.FeedReaderContract.FeedEntry.TABLE_NAME, null, values)
+    }
+
+    fun setFavorito(favorito : String, id : String)
+    {
+        val db = dbHelper.writableDatabase
+
+        db.execSQL("UPDATE musics SET favorite = $favorito WHERE ${BaseColumns._ID} = $id")
     }
 
     fun deletarDados(id: Int)
@@ -34,7 +42,8 @@ class ControladorBanco(private val context: Context)
         val db = dbHelper.readableDatabase
 
         val projection = arrayOf(BaseColumns._ID, CriaBanco.FeedReaderContract.FeedEntry.NAME,
-            CriaBanco.FeedReaderContract.FeedEntry.KEY, CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO)
+            CriaBanco.FeedReaderContract.FeedEntry.KEY, CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO,
+            CriaBanco.FeedReaderContract.FeedEntry.FAVORITO)
 
         val cursor = db.query(
             CriaBanco.FeedReaderContract.FeedEntry.TABLE_NAME,
@@ -53,7 +62,12 @@ class ControladorBanco(private val context: Context)
                 val name = getString(getColumnIndexOrThrow(CriaBanco.FeedReaderContract.FeedEntry.NAME))
                 val key = getString(getColumnIndexOrThrow(CriaBanco.FeedReaderContract.FeedEntry.KEY))
                 val description = getString(getColumnIndexOrThrow(CriaBanco.FeedReaderContract.FeedEntry.DESCRICAO))
-                items.add(Musica(id, name, key, description))
+                val favorito = getString(getColumnIndexOrThrow(CriaBanco.FeedReaderContract.FeedEntry.FAVORITO))
+
+                val musica = Musica(id, name, key, description)
+                musica.setFavorito(favorito = favorito)
+
+                items.add(musica)
             }
         }
 

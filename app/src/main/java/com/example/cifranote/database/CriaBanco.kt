@@ -15,6 +15,7 @@ class CriaBanco(context : Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
             const val NAME = "name"
             const val KEY= "music_key"
             const val DESCRICAO = "description"
+            const val FAVORITO = "favorite"
         }
     }
 
@@ -25,19 +26,20 @@ class CriaBanco(context : Context) : SQLiteOpenHelper(context, DATABASE_NAME, nu
                 "${BaseColumns._ID} INTEGER PRIMARY KEY, " +
                 "${FeedReaderContract.FeedEntry.NAME} TEXT, " +
                 "${FeedReaderContract.FeedEntry.KEY} TEXT, " +
-                "${FeedReaderContract.FeedEntry.DESCRICAO} TEXT )"
+                "${FeedReaderContract.FeedEntry.DESCRICAO} TEXT, " +
+                "${FeedReaderContract.FeedEntry.FAVORITO} TEXT )"
 
         db!!.execSQL(string)
 
-        string = "INSERT INTO ${FeedReaderContract.FeedEntry.TABLE_NAME} (name, music_key, description) VALUES" +
-        "('Imutavel Deus', 'G', 'É tempo de reconstruir, reerguer as muralhas, dispondo-se a trabalhar, e nao olhar atras...')," +
-        "('Cidade Eternal', 'Em', 'Constrangidos pelo amor do nosso Deus, caminhamos para a nova Jerusalem...')," +
-        "('Aos pes de Jesus', 'F', 'Aos pes de Jesus e onde encontro...')," +
-        "('Mais que maravilhoso','Eb', 'Jesus nos prometeu conselheiro ser...'), " +
-        "('Aquele que ha de vir vira', 'A', 'Aquele que ha de vir vira e nao tardara...'), " +
-        "('O Senhor e a minha rocha', 'Bb', 'Quando paro pra pensar em Teu grande Amor...'), " +
-        "('Bodas do Cordeiro', 'Dm', 'Ouvi no ceu a voz de uma multidao....'), " +
-        "('Nao se turbe o vosso coracao', 'A', 'Nao se turbe o vosso coracao, crede sempre em Deus, crede em mim')"
+        string = "INSERT INTO ${FeedReaderContract.FeedEntry.TABLE_NAME} (name, music_key, description, favorite) VALUES" +
+        "('Imutavel Deus', 'G', 'É tempo de reconstruir, reerguer as muralhas, dispondo-se a trabalhar, e nao olhar atras...', 'false')," +
+        "('Cidade Eternal', 'Em', 'Constrangidos pelo amor do nosso Deus, caminhamos para a nova Jerusalem...', 'true')," +
+        "('Aos pes de Jesus', 'F', 'Aos pes de Jesus e onde encontro...', 'false')," +
+        "('Mais que maravilhoso','Eb', 'Jesus nos prometeu conselheiro ser...', 'true'), " +
+        "('Aquele que ha de vir vira', 'A', 'Aquele que ha de vir vira e nao tardara...', 'false'), " +
+        "('O Senhor e a minha rocha', 'Bb', 'Quando paro pra pensar em Teu grande Amor...', 'true'), " +
+        "('Bodas do Cordeiro', 'Dm', 'Ouvi no ceu a voz de uma multidao....', 'false'), " +
+        "('Nao se turbe o vosso coracao', 'A', 'Nao se turbe o vosso coracao, crede sempre em Deus, crede em mim', 'true')"
 
         db.execSQL(string)
     }

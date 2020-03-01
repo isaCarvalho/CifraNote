@@ -37,7 +37,8 @@ class MyAdapter(private var myDataset: Array<Musica>): RecyclerView.Adapter<MyAd
 
         holder.cardView.setOnClickListener{ v ->
 
-            val array: Array<String> = arrayOf(myDataset[position].descricao, "${myDataset[position].nome} (${myDataset[position].tom})")
+            val array: Array<String> = arrayOf(myDataset[position].descricao, "${myDataset[position].nome} (${myDataset[position].tom})",
+                myDataset[position].getFavorito(), "${myDataset[position].id}")
 
             Intent(v.context, DisplayChordsActivity::class.java).apply {
                 putExtra(EXTRA_MESSAGE, array)
